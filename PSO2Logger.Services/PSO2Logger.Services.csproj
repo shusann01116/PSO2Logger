@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PSO2Logger.Core\PSO2Logger.Core.csproj" />
+    <ProjectReference Include="..\PSO2Logger.Interfaces\PSO2Logger.Interfaces.csproj" />
+    <ProjectReference Include="..\PSO2Logger.Models\PSO2Logger.Models.csproj" />
+  </ItemGroup>
+
+</Project>

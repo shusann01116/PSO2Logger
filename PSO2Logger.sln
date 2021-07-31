@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PSO2Logger", "PSO2Logger\PSO2Logger.csproj", "{CBE9E0EE-7985-41BA-8D72-5F63CCADD5E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PSO2Logger.Core", "PSO2Logger.Core\PSO2Logger.Core.csproj", "{B5529981-A5B5-4D5E-92A9-8B8CBB4A8375}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{BA3288F0-D9EB-4C5E-A947-74197C970102}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PSO2Logger.Models", "PSO2Logger.Models\PSO2Logger.Models.csproj", "{52BAE9DA-C544-4B47-B2A0-B6BDB670147E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSO2Logger.Interfaces", "PSO2Logger.Interfaces\PSO2Logger.Interfaces.csproj", "{5707717F-4E43-4848-85C4-37DC043826FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSO2Logger.Services", "PSO2Logger.Services\PSO2Logger.Services.csproj", "{081DCB37-2521-4D68-A637-1F011C561692}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBE9E0EE-7985-41BA-8D72-5F63CCADD5E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBE9E0EE-7985-41BA-8D72-5F63CCADD5E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBE9E0EE-7985-41BA-8D72-5F63CCADD5E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBE9E0EE-7985-41BA-8D72-5F63CCADD5E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5529981-A5B5-4D5E-92A9-8B8CBB4A8375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5529981-A5B5-4D5E-92A9-8B8CBB4A8375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5529981-A5B5-4D5E-92A9-8B8CBB4A8375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5529981-A5B5-4D5E-92A9-8B8CBB4A8375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52BAE9DA-C544-4B47-B2A0-B6BDB670147E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52BAE9DA-C544-4B47-B2A0-B6BDB670147E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52BAE9DA-C544-4B47-B2A0-B6BDB670147E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52BAE9DA-C544-4B47-B2A0-B6BDB670147E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5707717F-4E43-4848-85C4-37DC043826FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5707717F-4E43-4848-85C4-37DC043826FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5707717F-4E43-4848-85C4-37DC043826FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5707717F-4E43-4848-85C4-37DC043826FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{081DCB37-2521-4D68-A637-1F011C561692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{081DCB37-2521-4D68-A637-1F011C561692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{081DCB37-2521-4D68-A637-1F011C561692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{081DCB37-2521-4D68-A637-1F011C561692}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9FB42B7D-6869-45EA-B8AD-770F284CA465}
+	EndGlobalSection
+EndGlobal
