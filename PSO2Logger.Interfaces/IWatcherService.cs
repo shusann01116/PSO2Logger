@@ -8,8 +8,8 @@ namespace PSO2Logger.Interfaces {
 
         event EventHandler<WatcherEventArgs> OnFileChanged;
 
-        void ChangeFileName(string fileName);
-        void ChangeFolder(string folderPath);
+        void SetFileName(string fileName);
+        void SetFolderPath(string folderPath);
     }
 
     public enum WatchType {

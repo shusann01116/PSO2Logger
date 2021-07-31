@@ -11,6 +11,7 @@ namespace PSO2Logger.Services {
         /// <summary>
         /// ファイルが変更されたときに通知します。
         /// </summary>
+        /// <seealso cref="WatcherEventArgs"/>
         public event EventHandler<WatcherEventArgs> OnFileChanged;
 
         private bool dispose = false;
@@ -18,7 +19,14 @@ namespace PSO2Logger.Services {
         public string FileName { get; private set; }
         public string FolderPath { get; private set; }
 
+        /// <summary>
+        /// 1ループの長さ
+        /// </summary>
         public int SleepMilliSec { get; set; }
+
+        /// <summary>
+        /// <see cref="true">のときイベントを発火します。</see>
+        /// </summary>
         public bool CanRaiseEvent { get; set; } = false;
 
         /// <summary>
@@ -41,15 +49,13 @@ namespace PSO2Logger.Services {
             FolderPath = folderPath;
             FileName = filePath;
             SleepMilliSec = sleepMilliSec;
-
-            RunScanRoopAsync().Await();
         }
 
         /// <summary>
         /// 参照フォルダーパスを変更します。
         /// </summary>
         /// <param name="folderPath"></param>
-        public void ChangeFolder(string folderPath) {
+        public void SetFolderPath(string folderPath) {
             if (!Directory.Exists(folderPath))
                 throw new DirectoryNotFoundException();
 
@@ -60,7 +66,7 @@ namespace PSO2Logger.Services {
         /// 参照ファイル名を変更します。
         /// </summary>
         /// <param name="fileName">ファイル名</param>
-        public void ChangeFileName(string fileName) {
+        public void SetFileName(string fileName) {
             var filePath = GetFilePath(fileName);
 
             if (!File.Exists(filePath))

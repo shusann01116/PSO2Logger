@@ -1,5 +1,5 @@
-﻿namespace PSO2Logger.Core {
-    public enum ChatLineConstant {
+﻿namespace PSO2Logger.Services {
+    public enum ChatParameters {
         TimeStamp,
         ChatNum,
         ChatType,

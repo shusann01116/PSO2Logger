@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{BA32
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PSO2Logger.Models", "PSO2Logger.Models\PSO2Logger.Models.csproj", "{52BAE9DA-C544-4B47-B2A0-B6BDB670147E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSO2Logger.Interfaces", "PSO2Logger.Interfaces\PSO2Logger.Interfaces.csproj", "{5707717F-4E43-4848-85C4-37DC043826FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PSO2Logger.Interfaces", "PSO2Logger.Interfaces\PSO2Logger.Interfaces.csproj", "{5707717F-4E43-4848-85C4-37DC043826FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSO2Logger.Services", "PSO2Logger.Services\PSO2Logger.Services.csproj", "{081DCB37-2521-4D68-A637-1F011C561692}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PSO2Logger.Services", "PSO2Logger.Services\PSO2Logger.Services.csproj", "{081DCB37-2521-4D68-A637-1F011C561692}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatModule", "ChatModule\ChatModule.csproj", "{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,9 +43,16 @@ Global
 		{081DCB37-2521-4D68-A637-1F011C561692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{081DCB37-2521-4D68-A637-1F011C561692}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{081DCB37-2521-4D68-A637-1F011C561692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75} = {BA3288F0-D9EB-4C5E-A947-74197C970102}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9FB42B7D-6869-45EA-B8AD-770F284CA465}

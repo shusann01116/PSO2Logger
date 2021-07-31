@@ -1,5 +1,4 @@
-﻿using PSO2Logger.Core;
-using PSO2Logger.Interfaces;
+﻿using PSO2Logger.Interfaces;
 using PSO2Logger.Models;
 using System;
 using System.Collections.Generic;
@@ -41,12 +40,12 @@ namespace PSO2Logger.Services {
         private ChatLine ParseLine(string line) {
             var substr = line.Split('\t');
 
-            var timeStamp = DateTime.Parse(substr[(int)ChatLineConstant.TimeStamp]);
-            var chatNum = int.Parse(substr[(int)ChatLineConstant.ChatNum]);
-            var chatType = (ChatType)Enum.Parse(typeof(ChatType), substr[(int)ChatLineConstant.ChatType]);
-            var playerId = int.Parse(substr[(int)ChatLineConstant.PlayerID]);
-            var playerIdName = substr[(int)ChatLineConstant.PlayerIDName];
-            var chatBody = substr[(int)ChatLineConstant.ChatBody].Trim('"');
+            var timeStamp = DateTime.Parse(substr[(int)ChatParameters.TimeStamp]);
+            var chatNum = int.Parse(substr[(int)ChatParameters.ChatNum]);
+            var chatType = (ChatType)Enum.Parse(typeof(ChatType), substr[(int)ChatParameters.ChatType]);
+            var playerId = int.Parse(substr[(int)ChatParameters.PlayerID]);
+            var playerIdName = substr[(int)ChatParameters.PlayerIDName];
+            var chatBody = substr[(int)ChatParameters.ChatBody].Trim('"');
 
             return new ChatLine() {
                 TimeStamp = timeStamp,
