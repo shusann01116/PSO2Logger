@@ -1,4 +1,6 @@
 ﻿using Prism.Ioc;
+using Prism.Modularity;
+using PSO2Logger.Modules.Chat;
 using PSO2Logger.Views;
 using System.Windows;
 
@@ -13,6 +15,10 @@ namespace PSO2Logger {
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry) {
 
+        }
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog) {
+            moduleCatalog.AddModule<ChatModule>();
         }
     }
 }

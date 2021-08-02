@@ -1,14 +1,21 @@
-﻿<Window x:Class="PSO2Logger.Views.MainWindow"
+﻿<mah:MetroWindow x:Class="PSO2Logger.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:core="clr-namespace:PSO2Logger.Core;assembly=PSO2Logger.Core"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="350" Width="525" >
+        Title="{Binding Title}" Height="350" Width="525"
+        mah:SaveWindowPosition="True">
+
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Button Content="button" />
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+    
     <DockPanel LastChildFill="True">
         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.MenuRegion}" />
-        <Grid DockPanel.Dock="Bottom">
-            <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
-        </Grid>
+        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
     </DockPanel>
-</Window>
+</mah:MetroWindow>

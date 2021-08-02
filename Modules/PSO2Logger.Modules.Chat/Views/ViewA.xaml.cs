@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ChatModule.Views {
+namespace PSO2Logger.Modules.Chat.Views {
     /// <summary>
     /// Interaction logic for ViewA.xaml
     /// </summary>

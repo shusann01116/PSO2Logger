@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PSO2Logger.Interfaces", "PS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PSO2Logger.Services", "PSO2Logger.Services\PSO2Logger.Services.csproj", "{081DCB37-2521-4D68-A637-1F011C561692}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatModule", "ChatModule\ChatModule.csproj", "{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSO2Logger.Modules.Chat", "Modules\PSO2Logger.Modules.Chat\PSO2Logger.Modules.Chat.csproj", "{7E259E0C-50B0-48E0-9752-0A9F0AAB46DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,16 +43,16 @@ Global
 		{081DCB37-2521-4D68-A637-1F011C561692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{081DCB37-2521-4D68-A637-1F011C561692}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{081DCB37-2521-4D68-A637-1F011C561692}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E259E0C-50B0-48E0-9752-0A9F0AAB46DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E259E0C-50B0-48E0-9752-0A9F0AAB46DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E259E0C-50B0-48E0-9752-0A9F0AAB46DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E259E0C-50B0-48E0-9752-0A9F0AAB46DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{FDD77C86-C7EB-4E2E-A7FE-E2FC2F364C75} = {BA3288F0-D9EB-4C5E-A947-74197C970102}
+		{7E259E0C-50B0-48E0-9752-0A9F0AAB46DE} = {BA3288F0-D9EB-4C5E-A947-74197C970102}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9FB42B7D-6869-45EA-B8AD-770F284CA465}

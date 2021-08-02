@@ -1,6 +1,6 @@
 ﻿namespace PSO2Logger.Core {
     public static class RegionNames {
-        public const string MenuRegion = "MenuRegion";
-        public const string ContentRegion = "ContentRegion";
+        public static readonly string MenuRegion = "MenuRegion";
+        public static readonly string ContentRegion = "ContentRegion";
     }
 }

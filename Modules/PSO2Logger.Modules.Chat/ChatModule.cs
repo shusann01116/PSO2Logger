@@ -1,10 +1,10 @@
-﻿using ChatModule.Views;
-using Prism.Ioc;
+﻿using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
+using PSO2Logger.Modules.Chat.Views;
 
-namespace ChatModule {
-    public class ChatModuleModule : IModule {
+namespace PSO2Logger.Modules.Chat {
+    public class ChatModule : IModule {
         public void OnInitialized(IContainerProvider containerProvider) {
 
         }

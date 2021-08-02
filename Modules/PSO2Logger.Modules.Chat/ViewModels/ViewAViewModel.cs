@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChatModule.ViewModels {
+namespace PSO2Logger.Modules.Chat.ViewModels {
     public class ViewAViewModel : BindableBase {
         private string _message;
         public string Message {
