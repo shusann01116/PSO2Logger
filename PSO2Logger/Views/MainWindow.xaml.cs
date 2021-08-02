@@ -1,5 +1,6 @@
 ﻿using ControlzEx.Theming;
 using MahApps.Metro.Controls;
+using PSO2Logger.Core;
 using System.Windows;
 
 namespace PSO2Logger.Views {
@@ -10,7 +11,9 @@ namespace PSO2Logger.Views {
         public MainWindow() {
             InitializeComponent();
 
-            ThemeManager.Current.SyncTheme(ThemeSyncMode.SyncAll);
+            ThemeManager.Current.ChangeTheme(this, AppThemes.LightRed);
+            ThemeManager.Current.ThemeSyncMode = ThemeSyncMode.SyncAll;
+            ThemeManager.Current.SyncTheme();
         }
     }
 }
