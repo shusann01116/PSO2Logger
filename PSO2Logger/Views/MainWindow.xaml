@@ -8,14 +8,14 @@
         Title="{Binding Title}" Height="350" Width="525"
         mah:SaveWindowPosition="True">
 
-    <mah:MetroWindow.RightWindowCommands>
-        <mah:WindowCommands>
-            <Button Content="button" />
-        </mah:WindowCommands>
-    </mah:MetroWindow.RightWindowCommands>
-    
-    <DockPanel LastChildFill="True">
-        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.MenuRegion}" />
-        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
-    </DockPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="48" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ContentControl Grid.Column="0" 
+                           prism:RegionManager.RegionName="{x:Static core:RegionNames.HamburgerMenuRegion}" />
+        <ContentControl Grid.Column="1" 
+                        prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
+    </Grid>
 </mah:MetroWindow>

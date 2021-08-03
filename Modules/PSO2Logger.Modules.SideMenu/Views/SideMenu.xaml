@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="PSO2Logger.Modules.SideMenu.Views.SideMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:viewModels="clr-namespace:PSO2Logger.Modules.SideMenu.ViewModels"
+             xmlns:core="clr-namespace:PSO2Logger.Modules.SideMenu.Core"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DataContext="{d:DesignInstance viewModels:SideMenuViewModel, IsDesignTimeCreatable=False}" >
+    
+    <UserControl.Resources>
+        <DataTemplate x:Key="HamburgerOptionsMenuItem" DataType="{x:Type mah:HamburgerMenuIconItem}">
+            <DockPanel Height="48" LastChildFill="True">
+                <ContentControl x:Name="IconPart"
+                                Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type mah:HamburgerMenu}}, Path=CompactPaneLength}"
+                                Content="{Binding Icon}"
+                                DockPanel.Dock="Left"
+                                Focusable="False"
+                                IsTabStop="False" />
+                <TextBlock x:Name="TextPart"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           Margin="5 0 0 0"
+                           Text="{Binding Label}" />
+            </DockPanel>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type mah:HamburgerMenu}}, Path=PanePlacement}" Value="Right">
+                    <Setter TargetName="IconPart" Property="DockPanel.Dock" Value="Right" />
+                    <Setter TargetName="TextPart" Property="Margin" Value="8 0 0 0" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        
+        <Style TargetType="iconPacks:PackIconMaterialDesign">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Width" Value="22" />
+            <Setter Property="Height" Value="22" />
+        </Style>
+    </UserControl.Resources>
+
+    <mah:HamburgerMenu DisplayMode="CompactOverlay"
+                       d:IsPaneOpen="True"
+                       IsPaneOpen="False"
+                       HamburgerWidth="48"
+                       ItemTemplate="{StaticResource HamburgerOptionsMenuItem}"
+                       OptionsItemTemplate="{StaticResource HamburgerOptionsMenuItem}">
+
+        <!-- Header -->
+        <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+            <DataTemplate>
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           Foreground="White" />
+            </DataTemplate>
+        </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+
+        <!-- Items -->
+        <mah:HamburgerMenu.ItemsSource>
+            <mah:HamburgerMenuItemCollection>
+                <mah:HamburgerMenuIconItem Label="Chat"
+                                           Command="{Binding RequestNavigateCommand}"
+                                           CommandParameter="{x:Static core:ViewNames.ChatBody}" >
+                    <mah:HamburgerMenuIconItem.Icon>
+                        <iconPacks:PackIconMaterialDesign Kind="Chat" />
+                    </mah:HamburgerMenuIconItem.Icon>
+                </mah:HamburgerMenuIconItem>
+                <mah:HamburgerMenuIconItem Label="Settings"
+                                           Command="{Binding RequestNavigateCommand}"
+                                           CommandParameter="{x:Static core:ViewNames.Setting}" >
+                    <mah:HamburgerMenuIconItem.Icon>
+                        <iconPacks:PackIconMaterialDesign Kind="Settings" />
+                    </mah:HamburgerMenuIconItem.Icon>
+                </mah:HamburgerMenuIconItem>
+            </mah:HamburgerMenuItemCollection>
+        </mah:HamburgerMenu.ItemsSource>
+
+        <!--  Options  -->
+        <mah:HamburgerMenu.OptionsItemsSource>
+            <mah:HamburgerMenuItemCollection>
+                <mah:HamburgerMenuIconItem Label="About">
+                    <mah:HamburgerMenuIconItem.Icon>
+                        <iconPacks:PackIconMaterialDesign Kind="Help" />
+                    </mah:HamburgerMenuIconItem.Icon>
+                </mah:HamburgerMenuIconItem>
+            </mah:HamburgerMenuItemCollection>
+        </mah:HamburgerMenu.OptionsItemsSource>
+    </mah:HamburgerMenu>
+</UserControl>

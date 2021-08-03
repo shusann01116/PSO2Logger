@@ -10,10 +10,6 @@ namespace PSO2Logger.Views {
     public partial class MainWindow {
         public MainWindow() {
             InitializeComponent();
-
-            ThemeManager.Current.ChangeTheme(this, AppThemes.LightRed);
-            ThemeManager.Current.ThemeSyncMode = ThemeSyncMode.SyncAll;
-            ThemeManager.Current.SyncTheme();
         }
     }
 }

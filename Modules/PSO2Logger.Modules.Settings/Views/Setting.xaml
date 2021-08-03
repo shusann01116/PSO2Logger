@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="PSO2Logger.Modules.Settings.Views.Setting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <TextBlock Text="This is setting view"
+               FontSize="50"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center" />
+</UserControl>

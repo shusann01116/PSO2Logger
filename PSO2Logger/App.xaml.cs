@@ -1,8 +1,10 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
-using PSO2Logger.Modules.Chat;
 using PSO2Logger.Views;
 using System.Windows;
+using PSO2Logger.Modules.Chat;
+using PSO2Logger.Modules.Settings;
+using PSO2Logger.Modules.SideMenu;
 
 namespace PSO2Logger {
     /// <summary>
@@ -19,6 +21,8 @@ namespace PSO2Logger {
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog) {
             moduleCatalog.AddModule<ChatModule>();
+            moduleCatalog.AddModule<SettingsModule>();
+            moduleCatalog.AddModule<SideMenuModule>();
         }
     }
 }

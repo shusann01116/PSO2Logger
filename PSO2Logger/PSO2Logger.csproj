@@ -7,10 +7,15 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.7" />
+    <PackageReference Include="MaterialDesignColors" Version="2.0.1" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.1.7" />
     <PackageReference Include="Prism.DryIoc" Version="8.0.0.1909" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Modules\PSO2Logger.Modules.Chat\PSO2Logger.Modules.Chat.csproj" />
+    <ProjectReference Include="..\Modules\PSO2Logger.Modules.Settings\PSO2Logger.Modules.Settings.csproj" />
+    <ProjectReference Include="..\Modules\PSO2Logger.Modules.SideMenu\PSO2Logger.Modules.SideMenu.csproj" />
     <ProjectReference Include="..\PSO2Logger.Core\PSO2Logger.Core.csproj" />
   </ItemGroup>
 </Project>
