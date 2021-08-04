@@ -8,23 +8,17 @@
              xmlns:behavior="clr-namespace:PSO2Logger.Modules.Chat.Behaviors"
              mc:Ignorable="d"
              prism:ViewModelLocator.AutoWireViewModel="True">
-    
+
     <UserControl.Resources>
         <Style TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
-            <Setter Property="AutoGenerateColumns" Value="False" />
             <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="CanUserResizeColumns" Value="False" />
             <Setter Property="behavior:DataGridBehavior.Autoscroll" Value="True" />
         </Style>
-        
-        <DataTemplate x:Key="ChatGridDataTemplate">
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="{Binding PlayerIDName}" 
-                           TextWrapping="Wrap" />
-                <TextBlock Text="{Binding ChatBody}"
-                           Padding="5 0 0 0" 
-                           TextWrapping="Wrap" />
-            </StackPanel>
-        </DataTemplate>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource MahApps.Styles.Hyperlink.DataGrid}">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
     </UserControl.Resources>
     
     <Grid>
@@ -33,43 +27,30 @@
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
-            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <DataGrid Grid.Column="0"
-                  ItemsSource="{Binding ChatLines}" >
+                  ItemsSource="{Binding ChatLines}"
+                  AutoGenerateColumns="False"
+                  Name="PUBLIC">
+
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="PUBLIC" 
-                                        CellTemplate="{StaticResource ChatGridDataTemplate}" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <DataGrid Grid.Column="1"
-                  ItemsSource="{Binding ChatLines}" >
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="PARTY" 
-                                        CellTemplate="{StaticResource ChatGridDataTemplate}" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <DataGrid Grid.Column="2"
-                  ItemsSource="{Binding ChatLines}" >
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="TEAM" 
-                                        CellTemplate="{StaticResource ChatGridDataTemplate}" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <DataGrid Grid.Column="3"
-                  ItemsSource="{Binding ChatLines}" >
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="WHISPER" 
-                                        CellTemplate="{StaticResource ChatGridDataTemplate}" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <DataGrid Grid.Column="4"
-                  ItemsSource="{Binding ChatLines}" >
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="GROUP" 
-                                        CellTemplate="{StaticResource ChatGridDataTemplate}" />
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Name}" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Stretch">
+                                <TextBlock Text="{Binding PlayerIDName}" />
+                                <TextBlock Text="{Binding ChatBody}"
+                                           Margin="10 0 0 0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
+    
 </UserControl>
