@@ -10,7 +10,7 @@
              prism:ViewModelLocator.AutoWireViewModel="True">
     
     <UserControl.Resources>
-        <Style TargetType="DataGrid" BasedOn="{StaticResource MahApps.Styles.DataGrid}">
+        <Style TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
             <Setter Property="AutoGenerateColumns" Value="False" />
             <Setter Property="IsReadOnly" Value="True" />
             <Setter Property="behavior:DataGridBehavior.Autoscroll" Value="True" />
