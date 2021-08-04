@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PSO2Logger.Interfaces {
+namespace PSO2Logger.Interfaces.Core {
     public class WatcherEventArgs : EventArgs {
         public IEnumerable<string> FileNames { get; set; }
         public WatchType WatchType { get; set; }

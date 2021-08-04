@@ -1,4 +1,8 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Commands;
+using Prism.Mvvm;
+using Prism.Regions;
+using PSO2Logger.Core;
+using PSO2Logger.Modules.Chat.Views;
 
 namespace PSO2Logger.ViewModels {
     public class MainWindowViewModel : BindableBase {
@@ -8,8 +12,16 @@ namespace PSO2Logger.ViewModels {
             set { SetProperty(ref _title, value); }
         }
 
-        public MainWindowViewModel() {
+        private IRegionManager _regionManager;
 
+        private DelegateCommand<string> _requestNavigateCommand;
+        public DelegateCommand<string> RequestNavigateCommand => _requestNavigateCommand ??= new DelegateCommand<string>(Navigate);
+        public MainWindowViewModel(IRegionManager regionManager) {
+            _regionManager = regionManager;
+        }
+
+        public void Navigate(string navigatePath) {
+            _regionManager.RequestNavigate(RegionName.ContentRegion, navigatePath);
         }
     }
 }

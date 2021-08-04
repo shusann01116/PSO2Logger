@@ -3,8 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
-    <TextBlock Text="This is setting view"
-               FontSize="50"
-               VerticalAlignment="Center"
-               HorizontalAlignment="Center" />
+
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource MahApps.Styles.TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.MaterialDesignTextBox}">
+            <Setter Property="Margin" Value="10 0" />
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+    </UserControl.Resources>
+    
+    <StackPanel Margin="10">
+        <DockPanel Margin="5" LastChildFill="True">
+            <TextBlock Text="Folder Path" DockPanel.Dock="Left"/>
+            <TextBox Text="{Binding FolderPath}" 
+                     MinWidth="300"
+                     Width="Auto" />
+        </DockPanel>
+    </StackPanel>
 </UserControl>

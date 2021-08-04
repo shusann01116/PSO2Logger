@@ -1,4 +1,6 @@
-﻿using Prism.Ioc;
+﻿
+
+using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 using PSO2Logger.Modules.Settings.Views;

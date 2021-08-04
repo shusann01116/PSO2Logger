@@ -9,9 +9,11 @@
     <PackageReference Include="MaterialDesignColors" Version="2.0.1" />
     <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
     <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.1.7" />
-    <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PSO2Logger.Core\PSO2Logger.Core.csproj" />
+    <ProjectReference Include="..\..\PSO2Logger.Interfaces\PSO2Logger.Interfaces.csproj" />
+    <ProjectReference Include="..\..\PSO2Logger.Models\PSO2Logger.Models.csproj" />
   </ItemGroup>
 </Project>

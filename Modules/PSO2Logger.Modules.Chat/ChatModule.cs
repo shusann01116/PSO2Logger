@@ -1,7 +1,5 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Regions;
-using PSO2Logger.Core;
 using PSO2Logger.Modules.Chat.Views;
 
 namespace PSO2Logger.Modules.Chat {
@@ -10,7 +8,7 @@ namespace PSO2Logger.Modules.Chat {
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry) {
-            containerRegistry.RegisterForNavigation<ChatBody>();
+           containerRegistry.RegisterForNavigation<ChatBody>();
         }
     }
 }

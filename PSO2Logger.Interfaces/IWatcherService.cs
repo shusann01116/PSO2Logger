@@ -1,15 +1,12 @@
-﻿using System;
-using System.Text;
+﻿using PSO2Logger.Interfaces.Core;
+using System;
 
 namespace PSO2Logger.Interfaces {
     public interface IWatcherService {
-        string FolderPath { get; }
-        string FileName { get; }
+        string FolderPath { get; set; }
+        string FileName { get; set; }
 
-        event EventHandler<WatcherEventArgs> OnFileChanged;
-
-        void SetFileName(string fileName);
-        void SetFolderPath(string folderPath);
+        event EventHandler<WatcherEventArgs> OnChanged;
     }
 
     public enum WatchType {

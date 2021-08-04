@@ -1,4 +1,5 @@
 ﻿using PSO2Logger.Interfaces;
+using PSO2Logger.Interfaces.Core;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,17 +8,24 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace PSO2Logger.Services {
-    class FileWatcherService : IWatcherService, IDisposable {
+    public class FileWatcherService : IWatcherService, IDisposable {
         /// <summary>
         /// ファイルが変更されたときに通知します。
         /// </summary>
         /// <seealso cref="WatcherEventArgs"/>
-        public event EventHandler<WatcherEventArgs> OnFileChanged;
+        public event EventHandler<WatcherEventArgs> OnChanged;
 
         private bool dispose = false;
 
-        public string FileName { get; private set; }
-        public string FolderPath { get; private set; }
+        /// <summary>
+        /// 監視するファイル名
+        /// </summary>
+        public string FileName { get; set; }
+
+        /// <summary>
+        /// 監視するフォルダーパス
+        /// </summary>
+        public string FolderPath { get; set; }
 
         /// <summary>
         /// 1ループの長さ
@@ -28,6 +36,9 @@ namespace PSO2Logger.Services {
         /// <see cref="true">のときイベントを発火します。</see>
         /// </summary>
         public bool CanRaiseEvent { get; set; } = false;
+
+        public FileWatcherService() {
+        }
 
         /// <summary>
         /// フォルダー内のファイルの変更を通知します。
@@ -51,30 +62,6 @@ namespace PSO2Logger.Services {
             SleepMilliSec = sleepMilliSec;
         }
 
-        /// <summary>
-        /// 参照フォルダーパスを変更します。
-        /// </summary>
-        /// <param name="folderPath"></param>
-        public void SetFolderPath(string folderPath) {
-            if (!Directory.Exists(folderPath))
-                throw new DirectoryNotFoundException();
-
-            this.FolderPath = folderPath;
-        }
-
-        /// <summary>
-        /// 参照ファイル名を変更します。
-        /// </summary>
-        /// <param name="fileName">ファイル名</param>
-        public void SetFileName(string fileName) {
-            var filePath = GetFilePath(fileName);
-
-            if (!File.Exists(filePath))
-                throw new FileNotFoundException();
-
-            this.FileName = filePath;
-        }
-
         private string GetFilePath(string fileName) => Path.Combine(FolderPath, fileName);
 
         private async Task RunScanRoopAsync() {
@@ -82,27 +69,21 @@ namespace PSO2Logger.Services {
         }
 
         private void RunScanRoop() {
-            if (!Directory.Exists(FolderPath))
-                throw new DirectoryNotFoundException();
-
-            if (!File.Exists(FileName))
-                throw new FileNotFoundException();
-
-            var ofileNames = Directory.GetFiles(FolderPath);
-            var olastWrite = File.GetLastWriteTime(FileName);
+            var oldFileNames = Directory.GetFiles(FolderPath);
+            var oldLastWrite = File.GetLastWriteTime(GetFilePath(FileName));
 
             while (!dispose) {
                 while (CanRaiseEvent) {
-                    var nfileNames = Directory.GetFiles(FolderPath);
-                    if (ofileNames.Length != nfileNames.Length) {
-                        OnFileChanged?.Invoke(this, new WatcherEventArgs(nfileNames.Except(ofileNames), WatchType.FileCreated));
-                        ofileNames = nfileNames;
+                    var newFileNames = Directory.GetFiles(FolderPath);
+                    if (oldFileNames.Length != newFileNames.Length) {
+                        OnChanged?.Invoke(this, new WatcherEventArgs(newFileNames.Except(oldFileNames), WatchType.FileCreated));
+                        oldFileNames = newFileNames;
                     }
 
-                    var nlastWrite = File.GetLastWriteTime(FileName);
-                    if (olastWrite != nlastWrite) {
-                        OnFileChanged?.Invoke(this, new WatcherEventArgs(new List<string> { FileName }, WatchType.FileChanged));
-                        olastWrite = nlastWrite;
+                    var newLastWrite = File.GetLastWriteTime(GetFilePath(FileName));
+                    if (oldLastWrite != newLastWrite) {
+                        OnChanged?.Invoke(this, new WatcherEventArgs(new List<string> { FileName }, WatchType.FileChanged));
+                        oldLastWrite = newLastWrite;
                     }
                     Thread.Sleep(SleepMilliSec);
                 }

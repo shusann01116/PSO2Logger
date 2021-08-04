@@ -1,12 +1,75 @@
 ﻿<UserControl x:Class="PSO2Logger.Modules.Chat.Views.ChatBody"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:prism="http://prismlibrary.com/"             
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:PSO2Logger.Modules.Chat.ViewModels"
+             xmlns:behavior="clr-namespace:PSO2Logger.Modules.Chat.Behaviors"
+             mc:Ignorable="d"
              prism:ViewModelLocator.AutoWireViewModel="True">
+    
+    <UserControl.Resources>
+        <Style TargetType="DataGrid" BasedOn="{StaticResource MahApps.Styles.DataGrid}">
+            <Setter Property="AutoGenerateColumns" Value="False" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="behavior:DataGridBehavior.Autoscroll" Value="True" />
+        </Style>
+        
+        <DataTemplate x:Key="ChatGridDataTemplate">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="{Binding PlayerIDName}" 
+                           TextWrapping="Wrap" />
+                <TextBlock Text="{Binding ChatBody}"
+                           Padding="5 0 0 0" 
+                           TextWrapping="Wrap" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    
     <Grid>
-        <TextBlock Text="Chat Content is here" 
-                   FontSize="55"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <DataGrid Grid.Column="0"
+                  ItemsSource="{Binding ChatLines}" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="PUBLIC" 
+                                        CellTemplate="{StaticResource ChatGridDataTemplate}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Column="1"
+                  ItemsSource="{Binding ChatLines}" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="PARTY" 
+                                        CellTemplate="{StaticResource ChatGridDataTemplate}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Column="2"
+                  ItemsSource="{Binding ChatLines}" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="TEAM" 
+                                        CellTemplate="{StaticResource ChatGridDataTemplate}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Column="3"
+                  ItemsSource="{Binding ChatLines}" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="WHISPER" 
+                                        CellTemplate="{StaticResource ChatGridDataTemplate}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Column="4"
+                  ItemsSource="{Binding ChatLines}" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="GROUP" 
+                                        CellTemplate="{StaticResource ChatGridDataTemplate}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

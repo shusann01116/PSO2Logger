@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PSO2Logger.Models {
     public class ChatLine : ModelBase {
