@@ -6,7 +6,6 @@ using PSO2Logger.Models;
 using System.Collections.ObjectModel;
 
 namespace PSO2Logger.Modules.Chat.ViewModels {
-    // TODO: TextWrappingが適応されない問題の解決
     public class ChatBodyViewModel : BindableBase {
         private ILogService<ChatLine> logService;
         private IWatcherService watcherService;
@@ -63,6 +62,7 @@ namespace PSO2Logger.Modules.Chat.ViewModels {
         }
 
         private void OnFileChanged() {
+
         }
     }
 }
