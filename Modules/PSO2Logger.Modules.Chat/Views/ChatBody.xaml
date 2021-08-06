@@ -20,37 +20,26 @@
             <Setter Property="TextWrapping" Value="Wrap" />
         </Style>
     </UserControl.Resources>
-    
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
 
-        <DataGrid Grid.Column="0"
+    <DataGrid Grid.Column="0"
                   ItemsSource="{Binding ChatLines}"
-                  AutoGenerateColumns="False"
-                  Name="PUBLIC">
-
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Width="*">
-                    <DataGridTemplateColumn.Header>
-                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Name}" />
-                    </DataGridTemplateColumn.Header>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel VerticalAlignment="Stretch">
-                                <TextBlock Text="{Binding PlayerIDName}" />
-                                <TextBlock Text="{Binding ChatBody}"
+                  AutoGenerateColumns="False">
+        
+        <DataGrid.Columns>
+            <DataGridTemplateColumn Width="*">
+                <DataGridTemplateColumn.Header>
+                    <TextBlock Text="{Binding ChatTypeName}" />
+                </DataGridTemplateColumn.Header>
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel VerticalAlignment="Stretch">
+                            <TextBlock Text="{Binding PlayerIDName}" />
+                            <TextBlock Text="{Binding ChatBody}"
                                            Margin="10 0 0 0" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-    </Grid>
-    
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
 </UserControl>

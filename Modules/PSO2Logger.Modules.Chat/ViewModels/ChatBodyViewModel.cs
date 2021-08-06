@@ -1,14 +1,15 @@
 ﻿using Prism.Mvvm;
+using Prism.Regions;
 using PSO2Logger.Core;
 using PSO2Logger.Interfaces;
 using PSO2Logger.Interfaces.Core;
 using PSO2Logger.Models;
+using PSO2Logger.Modules.Chat.Models;
 using System.Collections.ObjectModel;
 
 namespace PSO2Logger.Modules.Chat.ViewModels {
-    public class ChatBodyViewModel : BindableBase {
-        private ILogService<ChatLine> logService;
-        private IWatcherService watcherService;
+    public class ChatBodyViewModel : BindableBase, INavigationAware {
+        private ChatDataStore chatDataStore;
 
         private string folderPath;
         public string FolderPath {
@@ -22,46 +23,27 @@ namespace PSO2Logger.Modules.Chat.ViewModels {
             set { SetProperty(ref fileName, value); }
         }
 
+        public ChatType ChatType { get; set; }
+
         private ObservableCollection<ChatLine> chatsLines;
         public ObservableCollection<ChatLine> ChatLines {
             get { return chatsLines; }
             set { SetProperty(ref chatsLines, value); }
         }
 
-        public ChatBodyViewModel(ILogService<ChatLine> logService, IWatcherService watcherService) {
-            FolderPath = PSO2Directories.DefaultLogPath;
-            FileName = PSO2Directories.GetLatestFileName(FolderPath);
-
-            this.logService = logService;
-            logService.FolderPath = FolderPath;
-            logService.InitializeStream();
-
-            this.watcherService = watcherService;
-            watcherService.FolderPath = FolderPath;
-
-            ChatLines = new ObservableCollection<ChatLine>(logService.GetNewLines());
-
-            watcherService.OnChanged += OnChanged;
+        public ChatBodyViewModel() {
         }
 
-        private void OnChanged(object sender, WatcherEventArgs e) {
-            switch (e.WatchType) {
-                case WatchType.FileChanged:
-                    OnFileChanged();
-                    break;
-                case WatchType.FileCreated:
-                    OnFileCreated();
-                    break;
-                default:
-                    break;
-            }
+        public void OnNavigatedTo(NavigationContext navigationContext) {
+            this.chatDataStore = (ChatDataStore)navigationContext.Parameters[nameof(ChatDataStore)];
+            this.ChatType = (ChatType)navigationContext.Parameters[nameof(ChatType)];
         }
 
-        private void OnFileCreated() {
-
+        public bool IsNavigationTarget(NavigationContext navigationContext) {
+            return false;
         }
 
-        private void OnFileChanged() {
+        public void OnNavigatedFrom(NavigationContext navigationContext) {
 
         }
     }

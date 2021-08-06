@@ -8,6 +8,10 @@
              xmlns:core="clr-namespace:PSO2Logger.Core;assembly=PSO2Logger.Core"
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -16,10 +20,13 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <ContentControl Grid.Column="0" prism:RegionManager.RegionName="{x:Static core:RegionName.PublicChatRegion}" />
-        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionName.PartyChatRegion}" />
-        <ContentControl Grid.Column="2" prism:RegionManager.RegionName="{x:Static core:RegionName.TeamChatRegion}" />
-        <ContentControl Grid.Column="3" prism:RegionManager.RegionName="{x:Static core:RegionName.WhisperChatRegion}" />
-        <ContentControl Grid.Column="4" prism:RegionManager.RegionName="{x:Static core:RegionName.GroupChatRegion}" />
+        <TextBlock Text="Combined Chat Region is here."
+                   FontSize="100" />
+
+        <ContentControl Grid.Column="0" Name="PUBLIC" prism:RegionManager.RegionName="{x:Static core:RegionName.PublicChatRegion}" />
+        <ContentControl Grid.Column="1" Name="PARTY" prism:RegionManager.RegionName="{x:Static core:RegionName.PartyChatRegion}" />
+        <ContentControl Grid.Column="2" Name="TEAM" prism:RegionManager.RegionName="{x:Static core:RegionName.TeamChatRegion}" />
+        <ContentControl Grid.Column="3" Name="WHISPER" prism:RegionManager.RegionName="{x:Static core:RegionName.WhisperChatRegion}" />
+        <ContentControl Grid.Column="4" Name="GROUP" prism:RegionManager.RegionName="{x:Static core:RegionName.GroupChatRegion}" />
     </Grid>
 </UserControl>
