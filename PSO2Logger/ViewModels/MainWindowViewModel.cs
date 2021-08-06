@@ -6,7 +6,7 @@ using PSO2Logger.Modules.Chat.Views;
 
 namespace PSO2Logger.ViewModels {
     public class MainWindowViewModel : BindableBase {
-        private string _title = "Prism Application";
+        private string _title = "PSO2 Logger";
         public string Title {
             get { return _title; }
             set { SetProperty(ref _title, value); }
