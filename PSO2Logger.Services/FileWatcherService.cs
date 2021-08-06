@@ -64,11 +64,7 @@ namespace PSO2Logger.Services {
 
         private string GetFilePath(string fileName) => Path.Combine(FolderPath, fileName);
 
-        private async Task RunScanRoopAsync() {
-            await Task.Run(RunScanRoop);
-        }
-
-        private void RunScanRoop() {
+        void IWatcherService.RunScanRoop() {
             var oldFileNames = Directory.GetFiles(FolderPath);
             var oldLastWrite = File.GetLastWriteTime(GetFilePath(FileName));
 

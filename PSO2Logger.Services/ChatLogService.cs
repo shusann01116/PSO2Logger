@@ -24,7 +24,7 @@ namespace PSO2Logger.Services {
 
         public void InitializeStream() {
             FileName ??= GetLatestFileName(FolderPath);
-            _ = FileName ?? throw new Exception($"FileName property cannot be null");
+            _ = FileName ?? throw new Exception($"{nameof(FolderPath)} property cannot be null");
 
             if (!Directory.Exists(FolderPath))
                 throw new DirectoryNotFoundException(FolderPath);
@@ -39,11 +39,14 @@ namespace PSO2Logger.Services {
 
             var filePath = Path.Combine(FolderPath, FileName);
 
-            fileStream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            fileStream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
             streamReader = new StreamReader(fileStream);
         }
 
         private IEnumerable<ChatLine> ParseLines(string lines) {
+            if (streamReader is null || fileStream is null)
+                throw new Exception($"Recommended to use {nameof(InitializeStream)} before.");
+
             foreach (var line in lines.Split($"\r\n")) {
                 if (string.IsNullOrEmpty(line))
                     continue;
@@ -53,6 +56,9 @@ namespace PSO2Logger.Services {
         }
 
         private ChatLine ParseLine(string line) {
+            if (streamReader is null || fileStream is null)
+                throw new Exception($"Recommended to use {nameof(InitializeStream)} before.");
+
             var substr = line.Split('\t');
 
             var timeStamp = DateTime.Parse(substr[(int)ChatParameters.TimeStamp]);
