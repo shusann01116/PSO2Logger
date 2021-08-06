@@ -10,6 +10,7 @@
     <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
     <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.1.7" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="ReactiveProperty" Version="7.11.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PSO2Logger.Core\PSO2Logger.Core.csproj" />

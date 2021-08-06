@@ -64,7 +64,7 @@
             <mah:HamburgerMenuItemCollection>
                 <mah:HamburgerMenuIconItem Label="Chat"
                                            Command="{Binding RequestNavigateCommand}"
-                                           CommandParameter="{x:Static core:ViewName.ChatBody}" >
+                                           CommandParameter="{x:Static core:ViewName.CombinedChat}" >
                     <mah:HamburgerMenuIconItem.Icon>
                         <iconPacks:PackIconMaterialDesign Kind="Chat" />
                     </mah:HamburgerMenuIconItem.Icon>
