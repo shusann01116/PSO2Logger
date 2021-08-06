@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Windows.Data;
 
 namespace PSO2Logger.Modules.Chat.ViewModels {
     public class CombinedChatViewModel : BindableBase {
@@ -29,6 +30,12 @@ namespace PSO2Logger.Modules.Chat.ViewModels {
             TeamChats = chatDataStore.TeamChats;
             WhisperChats = chatDataStore.WhisperChats;
             GroupChats = chatDataStore.GroupChats;
+
+            BindingOperations.EnableCollectionSynchronization(this.PublicChats, new object());
+            BindingOperations.EnableCollectionSynchronization(this.PartyChats, new object());
+            BindingOperations.EnableCollectionSynchronization(this.TeamChats, new object());
+            BindingOperations.EnableCollectionSynchronization(this.WhisperChats, new object());
+            BindingOperations.EnableCollectionSynchronization(this.GroupChats, new object());
         }
     }
 }
