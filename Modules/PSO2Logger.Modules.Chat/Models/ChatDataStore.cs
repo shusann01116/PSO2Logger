@@ -52,8 +52,9 @@ namespace PSO2Logger.Modules.Chat.Models {
             }
         }
 
+        // TODO: Fileの変更を検知
         private void OnFileCreated() {
-
+            throw new NotImplementedException();
         }
 
         private void OnFileChanged() {
