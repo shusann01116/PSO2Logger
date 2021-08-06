@@ -6,12 +6,23 @@
              mc:Ignorable="d"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:core="clr-namespace:PSO2Logger.Core;assembly=PSO2Logger.Core"
+             xmlns:behavior="clr-namespace:PSO2Logger.Modules.Chat.Behaviors"
              prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <UserControl.Resources>
+        <Style TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="CanUserResizeColumns" Value="False" />
+            <Setter Property="behavior:DataGridBehavior.Autoscroll" Value="True" />
+            <Setter Property="AutoGenerateColumns" Value="False" />
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource MahApps.Styles.Hyperlink.DataGrid}">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -20,13 +31,105 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Combined Chat Region is here."
-                   FontSize="100" />
-
-        <ContentControl Grid.Column="0" Name="PUBLIC" prism:RegionManager.RegionName="{x:Static core:RegionName.PublicChatRegion}" />
-        <ContentControl Grid.Column="1" Name="PARTY" prism:RegionManager.RegionName="{x:Static core:RegionName.PartyChatRegion}" />
-        <ContentControl Grid.Column="2" Name="TEAM" prism:RegionManager.RegionName="{x:Static core:RegionName.TeamChatRegion}" />
-        <ContentControl Grid.Column="3" Name="WHISPER" prism:RegionManager.RegionName="{x:Static core:RegionName.WhisperChatRegion}" />
-        <ContentControl Grid.Column="4" Name="GROUP" prism:RegionManager.RegionName="{x:Static core:RegionName.GroupChatRegion}" />
+        <DataGrid Grid.Column="0"
+                  ItemsSource="{Binding PublicChats}"
+                  Name="PUBLIC" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Name}" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Stretch">
+                                <TextBlock Text="{Binding PlayerIDName}" />
+                                <TextBlock Text="{Binding ChatBody}"
+                                           Margin="10 0 0 0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Column="1"
+                  ItemsSource="{Binding PartyChats}"
+                  Name="PARTY">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Name}" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Stretch">
+                                <TextBlock Text="{Binding PlayerIDName}" />
+                                <TextBlock Text="{Binding ChatBody}"
+                                           Margin="10 0 0 0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Column="2"
+                  ItemsSource="{Binding TeamChats}"
+                  Name="TEAM" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Name}" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Stretch">
+                                <TextBlock Text="{Binding PlayerIDName}" />
+                                <TextBlock Text="{Binding ChatBody}"
+                                           Margin="10 0 0 0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Column="3"
+                  ItemsSource="{Binding WhisperChats}"
+                  Name="WHISPER">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Name}" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Stretch">
+                                <TextBlock Text="{Binding PlayerIDName}" />
+                                <TextBlock Text="{Binding ChatBody}"
+                                           Margin="10 0 0 0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Column="4"
+                  ItemsSource="{Binding GroupChats}"
+                  Name="GROUP" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=Name}" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Stretch">
+                                <TextBlock Text="{Binding PlayerIDName}" />
+                                <TextBlock Text="{Binding ChatBody}"
+                                           Margin="10 0 0 0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

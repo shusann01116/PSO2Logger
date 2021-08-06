@@ -12,7 +12,7 @@ namespace PSO2Logger.Modules.Chat {
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry) {
-            containerRegistry.RegisterForNavigation<ChatBody>();
+            containerRegistry.RegisterForNavigation<CombinedChat>();
         }
     }
 }
