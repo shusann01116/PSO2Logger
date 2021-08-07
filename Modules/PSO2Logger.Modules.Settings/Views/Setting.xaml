@@ -15,13 +15,28 @@
             <Setter Property="FontSize" Value="30" />
         </Style>
     </UserControl.Resources>
-    
-    <StackPanel Margin="10">
-        <DockPanel Margin="5" LastChildFill="True">
-            <TextBlock Text="Folder Path" DockPanel.Dock="Left"/>
-            <TextBox Text="{Binding FolderPath}" 
-                     MinWidth="300"
-                     Width="Auto" />
-        </DockPanel>
+
+    <StackPanel Orientation="Vertical">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="*" MaxWidth="100" />
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Margin="10 10 0 10">
+                <DockPanel Margin="5" LastChildFill="True">
+                    <TextBlock Text="Folder Path" DockPanel.Dock="Left"/>
+                    <TextBox Text="{Binding FolderPath}" 
+                             MinWidth="300"
+                             Width="Auto" />
+                </DockPanel>
+            </StackPanel>
+            <Button Grid.Column="1"
+                    Content="..."
+                    Margin="10 0 10 0"
+                    Command="{Binding PickDirectoryCommand}"/>
+        </Grid>
+        
     </StackPanel>
 </UserControl>

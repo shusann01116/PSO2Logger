@@ -13,5 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PSO2Logger.Core\PSO2Logger.Core.csproj" />
+    <ProjectReference Include="..\..\PSO2Logger.Services\PSO2Logger.Services.csproj" />
   </ItemGroup>
 </Project>
