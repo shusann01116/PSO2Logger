@@ -7,13 +7,16 @@ using System.Windows.Controls;
 namespace PSO2Logger.Modules.Chat.Behaviors {
     class DataGridBehavior {
         public static readonly DependencyProperty AutoscrollProperty = DependencyProperty.RegisterAttached(
-       "Autoscroll", typeof(bool), typeof(DataGridBehavior), new PropertyMetadata(default(bool), OnAutoScrollPropertyChanged));
+            "Autoscroll", 
+            typeof(bool), 
+            typeof(DataGridBehavior), 
+            new PropertyMetadata(default(bool), OnAutoScrollPropertyChanged)
+        );
 
-        private static readonly Dictionary<DataGrid, NotifyCollectionChangedEventHandler> handlersDict = new Dictionary<DataGrid, NotifyCollectionChangedEventHandler>();
+        private static readonly Dictionary<DataGrid, NotifyCollectionChangedEventHandler> handlersDict = new();
 
         private static void OnAutoScrollPropertyChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs args) {
-            var dataGrid = dependencyObject as DataGrid;
-            if (dataGrid == null) {
+            if (dependencyObject is not DataGrid dataGrid) {
                 throw new InvalidOperationException("Dependency object is not DataGrid.");
             }
 
