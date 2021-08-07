@@ -4,6 +4,10 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>PSO2Logger</AssemblyName>
+    <Authors>shusann01116</Authors>
+    <Company />
+    <NeutralLanguage>ja-JP</NeutralLanguage>
+    <RepositoryUrl>https://github.com/shusann01116/PSO2Logger</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.7" />
