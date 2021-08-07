@@ -8,9 +8,13 @@
              xmlns:core="clr-namespace:PSO2Logger.Core;assembly=PSO2Logger.Core"
              xmlns:model="clr-namespace:PSO2Logger.Models;assembly=PSO2Logger.Models"
              xmlns:behavior="clr-namespace:PSO2Logger.Modules.Chat.Behaviors"
+             xmlns:converter="clr-namespace:PSO2Logger.Modules.Chat.Converters"
              prism:ViewModelLocator.AutoWireViewModel="True">
 
     <UserControl.Resources>
+        <!-- Converters -->
+        <converter:ChatTypeColorConverter x:Key="ChatTypeColorConverter" />
+
         <!-- Style and template for the DataGrid -->
         <Style TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
             <Setter Property="IsReadOnly" Value="True" />
@@ -36,11 +40,20 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="DataGridCell">
                         <StackPanel VerticalAlignment="Stretch">
-                            <TextBlock Text="{Binding PlayerIDName}"
-                                       TextWrapping="Wrap" />
+                            <DockPanel LastChildFill="True">
+                                <TextBlock x:Name="PlayerIDName" 
+                                           Text="{Binding PlayerIDName}"
+                                           TextWrapping="Wrap"
+                                           Foreground="{Binding ChatType, Converter={StaticResource ChatTypeColorConverter}}"/>
+                                <TextBlock DockPanel.Dock="Right" 
+                                           HorizontalAlignment="Right" 
+                                           Text="{Binding TimeStamp, StringFormat={}{0:tt hh:mm}}"
+                                           Foreground="{Binding Foreground ,ElementName=PlayerIDName}"/>
+                            </DockPanel>
                             <TextBlock Text="{Binding ChatBody}"
                                        Margin="10 0 0 0"
-                                       TextWrapping="Wrap" />
+                                       TextWrapping="Wrap"
+                                       Foreground="{Binding Foreground ,ElementName=PlayerIDName}"/>
                         </StackPanel>
                     </ControlTemplate>
                 </Setter.Value>
@@ -60,9 +73,9 @@
         <!-- PublicChat -->
         <DataGrid Grid.Column="0"
                   ItemsSource="{Binding PublicChats}"
-                  Name="PUBLIC" >
+                  Name="PUBLIC">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Width="*" />
+                <DataGridTemplateColumn Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <!-- PartyChat -->
@@ -70,15 +83,15 @@
                   ItemsSource="{Binding PartyChats}"
                   Name="PARTY">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Width="*" />
+                <DataGridTemplateColumn Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <!-- TeamChat -->
         <DataGrid Grid.Column="2"
                   ItemsSource="{Binding TeamChats}"
-                  Name="TEAM" >
+                  Name="TEAM">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Width="*" />
+                <DataGridTemplateColumn Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <!-- WhisperChat -->
@@ -86,15 +99,15 @@
                   ItemsSource="{Binding WhisperChats}"
                   Name="WHISPER">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Width="*" />
+                <DataGridTemplateColumn Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <!-- GroupChat -->
         <DataGrid Grid.Column="4"
                   ItemsSource="{Binding GroupChats}"
-                  Name="GROUP" >
+                  Name="GROUP">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Width="*" />
+                <DataGridTemplateColumn Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
