@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace PSO2Logger.Services {
+    // TODO: ReWriteWatcherService which implements new file detector.
     public class MockWatcherService : IWatcherService {
         public string FolderPath { get; set; }
         public string FileName { get; set; }
