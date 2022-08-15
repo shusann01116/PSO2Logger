@@ -7,7 +7,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PSO2Logger.Services {
+namespace PSO2Logger.Services { 
+    [Obsolete]
     public class FileWatcherService : IWatcherService, IDisposable {
         /// <summary>
         /// ファイルが変更されたときに通知します。

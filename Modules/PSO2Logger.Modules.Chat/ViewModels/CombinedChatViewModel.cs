@@ -1,15 +1,8 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Regions;
-using PSO2Logger.Core;
+﻿using Prism.Mvvm;
 using PSO2Logger.Interfaces;
 using PSO2Logger.Models;
 using PSO2Logger.Modules.Chat.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.Linq;
 using System.Windows.Data;
 
 namespace PSO2Logger.Modules.Chat.ViewModels {
@@ -20,7 +13,37 @@ namespace PSO2Logger.Modules.Chat.ViewModels {
         public ObservableCollection<ChatLine> PartyChats { get; set; } 
         public ObservableCollection<ChatLine> TeamChats { get; set; }
         public ObservableCollection<ChatLine> WhisperChats { get; set; } 
-        public ObservableCollection<ChatLine> GroupChats { get; set; } 
+        public ObservableCollection<ChatLine> GroupChats { get; set; }
+
+        private string _publicChatColor;
+        public string PublicChatColor {
+            get { return _publicChatColor; }
+            set { SetProperty(ref _publicChatColor, value); }
+        }
+
+        private string _partyChatColor;
+        public string PartyChatColor {
+            get { return _partyChatColor; }
+            set { SetProperty(ref _partyChatColor, value); }
+        }
+
+        private string _teamChatColor;
+        public string TeamChatColor {
+            get { return _teamChatColor; }
+            set { SetProperty(ref _teamChatColor, value); }
+        }
+
+        private string _whisperChatColor;
+        public string WhisperChatColor {
+            get { return _whisperChatColor; }
+            set { SetProperty(ref _whisperChatColor, value); }
+        }
+
+        private string _groupChatColor;
+        public string GroupChatColor {
+            get { return _groupChatColor; }
+            set { SetProperty(ref _groupChatColor, value); }
+        }
 
         public CombinedChatViewModel(ILogService<ChatLine> logService, IWatcherService watcherService) {
             chatDataStore = new ChatDataStore(logService, watcherService);

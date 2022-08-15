@@ -18,7 +18,8 @@ namespace PSO2Logger {
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry) {
-            containerRegistry.RegisterSingleton<IWatcherService, FileWatcherService>();
+            // TODO: Initialize Services with SavedFolderPath
+            containerRegistry.RegisterSingleton<IWatcherService, MockWatcherService>();
             containerRegistry.RegisterSingleton<ILogService<ChatLine>, ChatLogService>();
         }
 

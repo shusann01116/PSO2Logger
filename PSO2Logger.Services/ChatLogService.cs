@@ -18,6 +18,7 @@ namespace PSO2Logger.Services {
         public string FolderPath { get; set; }
 
         public ChatLogService() {
+            // TODO: Obsolete this ctor. (Path's should be specified by outside.)
             FolderPath = defaultLogPath;
             FileName = GetLatestFileName(FolderPath);
         }
